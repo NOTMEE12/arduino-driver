@@ -1,5 +1,7 @@
-const 0M = 0;
-const 1M = 1;
+const int firstM = 0;
+const int secondM = 1;
+const int thirdM = 2;
+const int fourthM = 3;
 
 void setup(){
 
