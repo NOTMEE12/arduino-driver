@@ -1,5 +1,5 @@
-const 0M = D0;
-const 1M = D1;
+const 0M = 0;
+const 1M = 1;
 
 void setup(){
 
