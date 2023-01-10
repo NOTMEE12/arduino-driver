@@ -25,26 +25,30 @@ void moveMotors(String direction, double speed=0.1){
   bool condition_met = false;
   // Front and all similiar directions
   if(direction == 'Front-left'){
+    digitalWrite(Front_right, HIGH);
     condition_met = true;
   }
   else if(direction == 'Front-right'){
+    digitalWrite(Front_left, HIGH);
     condition_met = true;
   }
   else if(direction == 'Front'){
     condition_met = true;
     digitalWrite(Front_right, HIGH);
     digitalWrite(Front_left, HIGH);
-    digitalWrite(Back_right, HIGH);
-    digitalWrite(Back_left, HIGH);
   }
   // Back and all similiar directions
   else if(direction == 'Back-left'){
+    digitalWrite(Back_right, HIGH);
     condition_met = true;
   }
   else if(direction == 'Back-right'){
+    digitalWrite(Back_left, HIGH);
     condition_met = true;
   }
   else if(direction == 'Back'){
+    digitalWrite(Back_left, HIGH);
+    digitalWrite(Back_right, HIGH);
     condition_met = true;
   }
   if(condition_met){
