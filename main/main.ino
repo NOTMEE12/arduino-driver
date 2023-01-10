@@ -66,6 +66,7 @@ EthernetServer server(80);
 
 
 void setup() {
+  String html = "<!DOCTYPE html><html><head><title>Arduino controller</title><style>.main {float: center;align: center;}</style></head><body><div class='main'><div><button> 🢄 </button><button> 🢁 </button><button> 🢅 </button></div><div><button> 🢀 </button><button> .. </button><button> 🢂 </button></div><div><button> 🢇 </button><button> 🢃 </button><button> 🢆 </button></div></div></body></html>"
   Ethernet.begin(mac, ip);
   server.begin();
   pinMode(Front_right, OUTPUT);
@@ -86,18 +87,7 @@ void loop() {
   if (client) {
     String request = client.readStringUntil('\r');
     client.flush();
-    client.println("HTTP/1.1 200 OK");
-    client.println("Content-Type: text/html");
-    client.println("Connection: close");
-    client.println();
-    client.println("<html>");
-    client.println("<head>");
-    client.println("<title>Arduino Web Server</title>");
-    client.println("</head>");
-    client.println("<body>");
-    client.println("<h1>Welcome to the Arduino Web Server</h1>");
-    client.println("</body>");
-    client.println("</html>");
+    client.println(html);
     delay(1);
     client.stop();
   }
