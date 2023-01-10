@@ -1,3 +1,16 @@
+/*
+git!
+
+echo "# arduino-driver" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M master
+git remote add origin https://github.com/NOTMEE12/arduino-driver.git
+git push -u origin master
+
+*/
+
 #include <SPI.h>
 #include <Ethernet.h>
 
