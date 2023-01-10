@@ -11,8 +11,6 @@ git push -u origin master
 
 */
 
-#include <SPI.h>
-#include <Ethernet.h>
 
 
 int Front_right = 1;
@@ -60,15 +58,9 @@ void moveMotors(String direction, double speed=0.1){
   }
 }
 
-byte mac[] = { 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED };
-IPAddress ip(192, 168, 1, 177);
-EthernetServer server(80);
-
 
 void setup() {
-  String html = "<!DOCTYPE html><html><head><title>Arduino controller</title><style>.main {float: center;align: center;}</style></head><body><div class='main'><div><button> 🢄 </button><button> 🢁 </button><button> 🢅 </button></div><div><button> 🢀 </button><button> .. </button><button> 🢂 </button></div><div><button> 🢇 </button><button> 🢃 </button><button> 🢆 </button></div></div></body></html>"
-  Ethernet.begin(mac, ip);
-  server.begin();
+  //String html = "<!DOCTYPE html><html><head><title>Arduino controller</title><style>.main {float: center;align: center;}</style></head><body><div class='main'><div><button> 🢄 </button><button> 🢁 </button><button> 🢅 </button></div><div><button> 🢀 </button><button> .. </button><button> 🢂 </button></div><div><button> 🢇 </button><button> 🢃 </button><button> 🢆 </button></div></div></body></html>";
   pinMode(Front_right, OUTPUT);
   pinMode(Front_left, OUTPUT);
   pinMode(Back_left, OUTPUT);
@@ -80,15 +72,4 @@ void setup() {
 }
 
 void loop() {
-  
-  
-  
-  EthernetClient client = server.available();
-  if (client) {
-    String request = client.readStringUntil('\r');
-    client.flush();
-    client.println(html);
-    delay(1);
-    client.stop();
-  }
 }
