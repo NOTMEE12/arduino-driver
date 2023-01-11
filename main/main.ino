@@ -14,7 +14,7 @@ git push -u origin master
 int Front_right = 4;
 int Front_left = 5;
 int Back_right = 3;
-int Back_left = 1;
+int Back_left = 2;
 
 
 void moveMotors(String direction){
@@ -55,7 +55,10 @@ void moveMotors(String direction){
     digitalWrite(Back_right, LOW);
   }
 }
-
+void log(String text, String end="\n"){
+  	String output = String(text) + end;
+	Serial.print(output);
+}
 
 void setup() {
   Serial.begin(9600);
@@ -70,8 +73,21 @@ void setup() {
 }
 
 void loop() {
+  	log("Front");
 	moveMotors("Front");
-  	Serial.print("Front");
+  	
+  	log("Front-left");
   	moveMotors("Front-left");
-  	Serial.print("Front-left");
+  
+  	log("Front-right");
+  	moveMotors("Front-right");
+  
+  	log("Back");
+  	moveMotors("Back");
+  
+  	log("Back-left");
+  	moveMotors("Back-left");
+  
+  	log("Back-right");
+  	moveMotors("Back-right");
 }
